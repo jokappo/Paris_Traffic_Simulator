@@ -1,0 +1,12 @@
+[project]
+name = "jupyterproject1"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.12"
+dependencies = [
+    "jupyterlab>=4.5.5",
+    "matplotlib>=3.10.8",
+    "osmnx>=2.1.0",
+    "pandas>=3.0.1",
+    "streamlit>=1.19.0",
+]
