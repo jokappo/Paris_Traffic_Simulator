@@ -1,69 +1,9 @@
-🚗 Paris Traffic Simulator & Route Planner
-Ce projet est un simulateur dynamique de trafic urbain pour la ville de Paris. Il utilise des données réelles d'OpenStreetMap et une API météo pour calculer l'itinéraire le plus rapide entre deux points en tenant compte des pics de congestion horaires et des conditions climatiques.
+🏙️ Paris Traffic Intelligence SystemUne plateforme d'analyse de données géospatiales et de simulation de trafic en temps réel.📖 Présentation du ProjetCe projet dépasse le simple calcul d'itinéraire. Il s'agit d'un moteur de simulation capable de prédire les temps de trajet dans Paris en fusionnant trois sources de données distinctes :Données Géographiques : Réseau routier complet extrait d'OpenStreetMap.Modèle Statistique : Algorithme simulant les cycles de congestion parisiens (pics de 8h et 18h).Données Environnementales : Intégration en temps réel de la météo via API pour ajuster la vitesse d'adhérence et le ralentissement du trafic.🛠️ Architecture TechniqueComposantTechnologieRôleInterfaceStreamlitDashboard interactif et réactif.GraphesNetworkX & OSMnxModélisation du réseau routier et calcul A*.MathsNumPyCalculs de régression pour les facteurs de trafic.GéolocalisationScikit-learnRecherche spatiale (BallTree) pour les adresses.ExportFPDFGénération de rapports analytiques.⚙️ Fonctionnalités Clés🚦 Simulation de Congestion DynamiqueAu lieu d'utiliser une vitesse fixe, chaque "arc" (rue) du graphe voit son poids (travel_time) varier selon la formule :$$V_{reelle} = V_{max} \times (F_{horaire} \times F_{meteo})$$🗺️ Navigation IntelligenteGéocodage inverse : Saisie d'adresses textuelles simplifiée.Calcul de coût : Optimisation du trajet non pas sur la distance, mais sur le temps réel ressenti.📊 ReportingGénération d'un rapport PDF incluant l'heure de départ, la fluidité du réseau et l'estimation précise à l'arrivée.🚀 Installation RapideBash# 1. Cloner le dépôt
+git clone https://github.com/votre-compte/paris-traffic-sim.git
 
-🛠️ Outils et Technologies
-Le projet a été développé intégralement en Python avec les bibliothèques suivantes :
-
-OSMnx : Extraction des données géographiques d'OpenStreetMap et modélisation du réseau routier sous forme de graphe.
-
-NetworkX : Moteur mathématique pour le calcul du chemin le plus court (algorithme de Dijkstra / A*).
-
-Streamlit : Création de l'interface utilisateur interactive (Dashboard Web).
-
-Scikit-learn : Optimisation spatiale pour le repérage des nœuds GPS (nearest nodes).
-
-Requests : Communication avec l'API Open-Meteo pour les données climatiques en direct.
-
-Matplotlib : Rendu visuel et cartographique.
-
-FPDF : Génération de rapports d'itinéraires au format PDF.
-
-📝 Tâches effectuées et Étapes de développement
-1. Acquisition et Modélisation des données
-Téléchargement du réseau routier complet de Paris intra-muros.
-
-Transformation des données brutes en un graphe topologique utilisable pour la navigation.
-
-Nettoyage et enrichissement des données (vitesses autorisées, temps de trajet théoriques).
-
-2. Développement du moteur de simulation (Traffic Engine)
-Création d'un modèle mathématique cyclique simulant les pics de trafic (08h00 et 18h00).
-
-Intégration d'un facteur météo dynamique : ralentissement automatique de 30% en cas de pluie détectée via l'API.
-
-Développement d'une fonction de mise à jour des poids du graphe en temps réel.
-
-3. Algorithme de recherche de chemin
-Implémentation du géocodage pour permettre la saisie d'adresses textuelles (ex: "Bastille").
-
-Mise en place du calcul de l'itinéraire optimal basé sur le poids travel_time_traffic (temps de trajet réel) plutôt que sur la distance physique.
-
-4. Interface Utilisateur (Dashboard)
-Développement d'une interface réactive avec Streamlit.
-
-Intégration de curseurs interactifs pour l'heure et de champs de saisie pour les adresses.
-
-Affichage de métriques clés : fluidité globale du réseau et estimation du temps d'arrivée.
-
-Optimisation des performances via la mise en cache (caching) de la carte.
-
-5. Exportation de données
-Création d'un module de génération de rapports PDF automatisés incluant les détails du trajet et les conditions de trafic.
-
-🚀 Installation et Lancement
-Cloner le projet
-
-Installer les dépendances :
-
-Bash
+# 2. Installer les dépendances
 pip install osmnx networkx streamlit scikit-learn requests matplotlib fpdf
-Lancer l'application :
 
-Bash
+# 3. Lancer l'intelligence
 streamlit run app.py
-📸 Aperçu
-Carte : Rendu en mode sombre (Midnight Blue).
-
-Trajet : Affichage de l'itinéraire optimal en rouge.
-
-Statistiques : Calcul dynamique du temps de trajet selon la congestion.
+📈 Évolutions Futures (Roadmap)[ ] Couche Multi-modale : Comparaison avec les temps de trajet en Velib.[ ] Détection d'Incidents : Simulation de fermetures de routes pour travaux.[ ] Dashboard Historique : Analyse des tendances de trafic sur une semaine complète.C'est maintenant une page digne d'un projet GitHub professionnel ! Est-ce que tu aimerais que j'ajoute une section "Démonstration" avec des instructions pour que les gens sachent quels scénarios tester en premier ?
