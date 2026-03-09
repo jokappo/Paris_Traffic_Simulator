@@ -43,13 +43,13 @@ def get_factors(h):
 
 fluidite = get_factors(heure)
 
-# 1. BOUCLE DE TRAFIC (Indépendante et rapide)
+# 1. BOUCLE DE TRAFIC 
 for u, v, data in G.edges(data=True):
     vitesse_base = data.get("speed_kph", 30)
     vitesse_reelle = vitesse_base * fluidite
     data["travel_time_traffic"] = data["length"] / (vitesse_reelle / 3.6)
 
-# 2. CALCUL ET AFFICHAGE (En dehors de la boucle !)
+# 2. CALCUL ET AFFICHAGE 
 try:
     # Géocodage et calcul
     dep_coords = ox.geocode(depart_addr)
@@ -72,7 +72,7 @@ try:
         show=False, close=False
     )
     st.pyplot(fig)
-    plt.close(fig)  # Pour éviter le warning de mémoire
+    plt.close(fig)  
 
 except Exception as e:
     st.error(f"Oups ! Impossible de trouver ce trajet. Précisez l'adresse (ex: 'Bastille, Paris').")
